@@ -1,0 +1,87 @@
+body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+header {
+    width: 100%;
+    height: 13vh;
+    /* left: 0px;
+    top: 0px; */
+    background: #004C94;
+    padding: auto;
+    
+}
+
+
+.logo {
+    width: 10vw;
+    height: 12vh;
+}
+
+.perfil {
+    width: 10vw;
+    height: 12vh;
+    float: right;
+}
+
+.gifFundo {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+    position: relative;
+    text-align: center;
+    color: black;
+}
+
+.fonte {
+    font-family: helvetica;
+    position: absolute;
+    z-index: 9;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.fonte2 {
+    font-family: helvetica;
+    z-index: 9;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.container{
+    margin-top: 5vh;
+}
+
+.containerImagem {
+    background-color: #004C94;
+    width: 200px;
+    height: 150px;
+    border-radius: 20px;
+    /* padding: 20px; */
+    margin-bottom: 6vh;
+    text-align: center;
+}
+
+
+
+footer {
+    position: absolute;
+    width: 100%;
+    height: 10vh;
+    background: #004C94;
+}
