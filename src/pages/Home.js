@@ -7,8 +7,16 @@ import configuracao from '../assets/config.png'
 import { Header, BlocoHeader, HeaderImg } from './Sentimentos';
 // import './App.css';
 import '../style.css'
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { Background} from '../styledGlobal';
+
+
+const LinkStyle = styled(Link)`
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+`
 
 
 function Home() {
@@ -30,32 +38,36 @@ function Home() {
         </div>
           <div class="container">
           <div class='cards'>
-            <Link to='/sentimentos'>
+            <LinkStyle to='/sentimentos'>
             <div class='containerImagem'>
               <p>Começar</p>
               
               <img src={comeco} alt="" width="40%"/>
             </div>
-            </Link>
+            </LinkStyle>
 
+            <LinkStyle to='/saved'>
             <div class='containerImagem'>
-              <p>Status</p>
-              <Link to='/login'>Fazer login</Link>
-              <img src={status} alt="" width="40%"/>
+              <p>Salvos</p>
               
+              <img src={status} alt="" width="40%"/>
+             
             </div>
+            </LinkStyle>
 
+            <LinkStyle to='/config'>
             <div class='containerImagem'>
               <p>Configurações</p>
               <img src={configuracao} alt='' width="40%"/>
-              
             </div>
+            </LinkStyle>
+
           </div>
         </div>
       </main>
 
       <footer>
-
+        <LinkStyle to='/login'>Fazer login</LinkStyle>
       </footer>
    
 
