@@ -7,6 +7,7 @@ import olho from '../assets/olho.png'
 import botao from '../assets/botao.png'
 import lua from '../assets/Lua.png'
 import corpo from '../assets/Acessibilidade.png'
+import ToggleSwitch from "../components/Toggle/ToggleSwitch";
 
 
 export const Header = styled.header`
@@ -77,7 +78,7 @@ const ImagemOlho = styled.img`
 const TextOlho = styled.h1`
     color: white;
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
     /* margin-top: 27px; */
     font-weight: 600;
     /* margin-left: 30%; */
@@ -85,10 +86,13 @@ const TextOlho = styled.h1`
     
 `
 
-const Botao = styled.img`
-    width: 100px;
-    height: 70px;
-`
+const Botao = styled(ToggleSwitch)`
+    margin-right: 250px;
+`   
+
+
+
+
 
 export default function Config(){
     return (
@@ -111,7 +115,7 @@ export default function Config(){
                 <LinhaOpcao>
                     <ImagemOlho src={olho} alt='Olho cedo' />
                     <TextOlho>Leitor de tela</TextOlho>
-                    <Botao src={botao} alt="botão"/>
+                    <Botao/>
                 </LinhaOpcao>
 
                 <LinhaOpcao>
