@@ -20,7 +20,7 @@ import { Box } from '@chakra-ui/react'
 export const Header = styled.header`
     width: 100%;
     height: 13vh;
-    background: #004C94;
+    background-color: #004C94;
     padding: auto;
 `
 

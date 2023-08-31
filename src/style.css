@@ -64,16 +64,16 @@ header {
 }
 
 .container{
-    margin-top: 5vh;
+    margin-top: 4vh;
 }
 
 .containerImagem {
-    background-color: #004C94;
+    background-color: #004c94dd;
     width: 200px;
     height: 150px;
     border-radius: 20px;
     /* padding: 20px; */
-    margin-bottom: 6vh;
+    margin-bottom: 2.5vh;
     text-align: center;
 }
 
@@ -82,6 +82,6 @@ header {
 footer {
     position: absolute;
     width: 100%;
-    height: 10vh;
-    background: #004C94;
+    height: 13vh;
+    background: #004c94d6;
 }
