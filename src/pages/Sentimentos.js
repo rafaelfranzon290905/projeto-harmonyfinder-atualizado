@@ -6,6 +6,8 @@ import sorriso from '../assets/sorriso.png';
 import triste from '../assets/triste.png';
 import paixao from '../assets/paixão.png';
 import raiva from '../assets/raiva.png';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 import {
     Accordion,
@@ -16,6 +18,8 @@ import {
   } from '@chakra-ui/react'
 
 import { Box } from '@chakra-ui/react'
+
+
 
 export const Header = styled.header`
     width: 100%;
@@ -34,6 +38,11 @@ export const HeaderImg = styled.img`
     width: 10vw;
     height: 12vh;
     
+`
+const LinkStyle = styled(Link)`
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
 `
 
 const BlocoEscolha = styled.div`
@@ -106,6 +115,9 @@ const SelecionarCorVermelho = styled.button`
 
 
 export default function Sentimentos() {
+
+    const [emocao, setEmocao] = useState()
+
     return (
         <>
             <Background>
@@ -130,10 +142,10 @@ export default function Sentimentos() {
                             </Titulo>
                             <AccordionPanel pb={4}>
                                 <DivCaixaSentimento>
-                                    <CaixaSentimento1 id='feliz'><SentimentoEmoji alt='' src={sorriso}/></CaixaSentimento1>
-                                    <CaixaSentimento2 id='triste'><SentimentoEmoji alt='' src={triste}/></CaixaSentimento2>
-                                    <CaixaSentimento3 id='paixao'><SentimentoEmoji alt='' src={paixao}/></CaixaSentimento3>
-                                    <CaixaSentimento4 id='raiva'><SentimentoEmoji alt='' src={raiva}/></CaixaSentimento4>
+                                    <LinkStyle to='/paletas'><CaixaSentimento1 id='feliz'><SentimentoEmoji alt='' src={sorriso}/></CaixaSentimento1></LinkStyle>
+                                    <LinkStyle to='/paletas'></LinkStyle><CaixaSentimento2 id='triste'><SentimentoEmoji alt='' src={triste}/></CaixaSentimento2><LinkStyle/>
+                                    <LinkStyle to='/paletas'></LinkStyle><CaixaSentimento3 id='paixao'><SentimentoEmoji alt='' src={paixao}/></CaixaSentimento3><LinkStyle/>
+                                    <LinkStyle to='/paletas'></LinkStyle><CaixaSentimento4 id='raiva' onClick={() => setEmocao("raiva")}><SentimentoEmoji alt='' src={raiva}/></CaixaSentimento4><LinkStyle/>
                                     
                                 </DivCaixaSentimento>
                                 
@@ -152,10 +164,10 @@ export default function Sentimentos() {
                             <AccordionPanel pb={4}>
                             <DivCaixaSentimento>
 
-                                <SelecionarCorAmarelo/>
-                                <SelecionarCorAzul/>
-                                <SelecionarCorRosa/>
-                                <SelecionarCorVermelho/>
+                            <LinkStyle to='/paletas'><SelecionarCorAmarelo/></LinkStyle>
+                            <LinkStyle to='/paletas'><SelecionarCorAzul/></LinkStyle>
+                            <LinkStyle to='/paletas'><SelecionarCorRosa/></LinkStyle>
+                            <LinkStyle to='/paletas'><SelecionarCorVermelho/></LinkStyle>
 
                             </DivCaixaSentimento>
                         
@@ -166,5 +178,7 @@ export default function Sentimentos() {
                     </BlocoEscolha>
             </Background>
         </>
+       
     )
+    console.log(emocao)
 }
