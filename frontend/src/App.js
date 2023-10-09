@@ -3,7 +3,7 @@ import React from 'react';
 import Home from './pages/Home';
 import Sentimentos from './pages/Sentimentos';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from './pages/Login';
+import { Login } from './pages/Login';
 // import { ChakraProvider } from '@chakra-ui/react'
 import {GlobalStyle } from "./styledGlobal"
 import Paletas from './pages/Paletas';
