@@ -43,9 +43,9 @@ async function storeUser(request, response) {
 
     // Recuperar os dados enviados na requisição
     const params = Array(
-        request.body.nome,
+        request.body.name,
         request.body.email,
-        bcrypt.hashSync(request.body.senha, 10)
+        bcrypt.hashSync(request.body.password, 10)
     );
 
     // Executa a ação no banco e valida os retornos para o client que realizou a solicitação

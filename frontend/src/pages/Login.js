@@ -6,11 +6,8 @@ import profile from '../assets/image-removebg-preview (3).png';
 import fotoFundo from "../assets/background.PNG";
 import { useState } from "react";
 import { LayoutComponents } from "../components/LayoutComponents";
-import { useContext } from "react";
-//import { AuthContext } from "../context/AuthContext";
-import { Link, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
-import { Link } from 'react-router-dom';
 
 export const FormLogin = styled.div`
     background-color: #004A8D;
@@ -68,7 +65,7 @@ export const Login = () => {
   const [email, setEmail] = useState("");
   const [senha, setPassword] = useState("");
   const [user, setUser] = useState(null);
-  //const { signIn, signed } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -87,12 +84,12 @@ export const Login = () => {
 
         api.defaults.headers.common[
           "Authorization"
-        ] = `Bearer ${response.data.tokenApi}`;
+        ] = `Bearer ${response.data.data[0].tokenApi}`;
 
         localStorage.setItem("@Auth:user", JSON.stringify(response.data.data[0].name));
         localStorage.setItem("@Auth:token", response.data.data[0].token);
 
-        //redireciona
+        navigate("/home");
         
       }
   };  

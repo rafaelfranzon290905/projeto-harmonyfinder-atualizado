@@ -68,6 +68,7 @@ function Home() {
 
       <footer>
         <LinkStyle to='/login'>Fazer login</LinkStyle>
+        <LinkStyle to='/cadastro'>Fazer cadastro</LinkStyle>
       </footer>
    
 

@@ -20,7 +20,8 @@ async function login(request, response) {
     // Executa a ação no banco e valida os retornos para o client que realizou a solicitação
     connection.query(query, params, (err, results) => {
         try {            
-            if (results.length > 0) {                
+            if (results.length > 0) {     
+                console.log(results[0])           
                 bcrypt.compare(request.body.senha, results[0].senha, (err, result) => {
                     if (err) {                        
                         return response.status(401).send({

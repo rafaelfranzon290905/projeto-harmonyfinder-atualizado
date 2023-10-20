@@ -12,6 +12,28 @@ import raiva from '../assets/raiva.png';
 import retorno from '../assets/return.png';
 import refresh from '../assets/refresh.png';
 import save from '../assets/save.png';
+import ColorScheme from "color-scheme";
+
+var scheme = new ColorScheme;
+scheme         // Start the scheme 
+    .scheme('tetrade')     // Use the 'tetrade' scheme, that is, colors
+                            // selected from 4 points equidistant around
+                            // the color wheel.
+    .variation('default');   // Use the 'soft' color variation
+
+var colors = scheme.colors();
+let cor1 = "#" + colors[3]
+let cor2 = "#" + colors[7]
+let cor3 = "#" + colors[11]
+let cor4 = "#" + colors[15]
+/*
+colors = [ "e69373", "805240", "e6d5cf", "bf5830" ,
+            "77d36a", "488040", "d2e6cf", "43bf30" ,
+            "557aaa", "405c80", "cfd9e6", "306ebf" ]
+*/
+
+console.log(colors)
+console.log(cor1)
 
 const Selecionado = styled.img`
     height: 40px;
@@ -27,25 +49,25 @@ const CaixaPaletas = styled.div`
     justify-content: space-evenly;
 `
 const Cor1 = styled.div`
-    background-color: #F3C755;
+    background-color: ${cor1};
     height: 100%;
     width: 20%;
     display: flex;
 `
 const Cor2 = styled.div`
-    background-color: #64C654;
+    background-color: ${cor2};
     height: 100%;
     width: 20%;
     display: flex;
 `
 const Cor3 = styled.div`
-    background-color: #E75555;
+    background-color: ${cor3};
     height: 100%;
     width: 20%;
     display: flex;
 `
 const Cor4 = styled.div`
-    background-color: #C565E7;
+    background-color: ${cor4};
     height: 100%;
     width: 20%;
     display: flex;
@@ -89,7 +111,12 @@ const Salvar = styled.button`
     font-size: 20px;
 `
 
+ 
+   
 export default function PaletasSalvas(){
+
+    
+
     return (
     <>
         <Background>
@@ -117,9 +144,9 @@ export default function PaletasSalvas(){
                 </CaixaPaletas>
 
                 <CaixaBotao>
-                    <Retornar><img src={retorno} height='20px'></img> Retornar</Retornar>
-                    <Refresh><img src={refresh} height='30px'></img></Refresh>
-                    <Salvar>Salvar <img src={save} height='20px'></img></Salvar>
+                    <Retornar><img src={retorno} alt="" height='20px'></img> Retornar</Retornar>
+                    <Refresh><img src={refresh} alt="" height='30px'></img></Refresh>
+                    <Salvar>Salvar <img src={save} alt="" height='20px'></img></Salvar>
                 </CaixaBotao>
             </Caixa>
         </Background>
