@@ -66,9 +66,9 @@ function Home() {
         </div>
       </main>
 
-      <footer>
-        <LinkStyle to='/login'>Fazer login</LinkStyle>
-        <LinkStyle to='/cadastro'>Fazer cadastro</LinkStyle>
+      <footer padding>
+        <LinkStyle to='/login'>Fazer login -</LinkStyle>
+        <LinkStyle to='/cadastro'>- Fazer cadastro</LinkStyle>
       </footer>
    
 

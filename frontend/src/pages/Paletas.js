@@ -15,17 +15,17 @@ import save from '../assets/save.png';
 import ColorScheme from "color-scheme";
 
 var scheme = new ColorScheme;
-scheme         // Start the scheme 
+scheme.from_hue(1)   // Start the scheme 
     .scheme('tetrade')     // Use the 'tetrade' scheme, that is, colors
-                            // selected from 4 points equidistant around
+    // .distance(0.25)                    // selected from 4 points equidistant around
                             // the color wheel.
     .variation('default');   // Use the 'soft' color variation
 
 var colors = scheme.colors();
-let cor1 = "#" + colors[3]
-let cor2 = "#" + colors[7]
-let cor3 = "#" + colors[11]
-let cor4 = "#" + colors[15]
+let cor1 = "#" + colors[0]
+let cor2 = "#" + colors[4]
+let cor3 = "#" + colors[8]
+let cor4 = "#" + colors[12]
 /*
 colors = [ "e69373", "805240", "e6d5cf", "bf5830" ,
             "77d36a", "488040", "d2e6cf", "43bf30" ,

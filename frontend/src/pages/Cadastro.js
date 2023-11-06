@@ -1,12 +1,38 @@
-import { Background} from '../styledGlobal';
 import { Header, BlocoHeader, HeaderImg } from "./Config"
 import styled from "styled-components"
 import logo from '../assets/senac_logo_branco.png';
 import profile from '../assets/image-removebg-preview (3).png';
 import { useState } from "react";
-
+import fotoFundo from "../assets/background.PNG";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
+import { Link } from 'react-router-dom';
+
+const LinkStyle = styled(Link)`
+  text-decoration: none;
+  color: blue;
+  font-weight: 600;
+`
+
+
+export const Formcadastro = styled.div`
+    background-color: #00A3FF;
+    width: 30%;
+    margin-top: 1%;
+    margin-left: 10%;
+    padding: 3px;
+    border-radius: 30px;
+    text-align: center;
+`
+
+export const Titulo = styled.h2`
+  color: whitesmoke;
+  text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+             1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+  text-align: center;
+  font-size: 24px;
+  padding: 0;
+`
 
 export const CardTitle = styled.h2`
     color: black;
@@ -17,10 +43,10 @@ export const FormInput = styled.input`
     width: 80%;
     height: 20px;
     border-radius: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 3px;
     font-size: 16px;
     border: none;
-    padding: 15px;
+    padding: 10px;
 `
 
 export const FormSubmit = styled.button`
@@ -34,6 +60,8 @@ export const FormSubmit = styled.button`
     border-style: none;
     margin-left: 25%;
     margin-right: 25%;
+    margin-top: 5%;
+    margin-bottom: 2px;
     &:hover {
       background-color: #FFB800;
       transform: scale(1.05, 1.05);
@@ -42,6 +70,12 @@ export const FormSubmit = styled.button`
     }
 `
 
+const Fundo = styled.div`
+    background-image: url(${fotoFundo});
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+`
 
 export default function Cadastro() {
 
@@ -63,17 +97,20 @@ export default function Cadastro() {
         navigate("/home");
   };
 
+
+
     return (
         <>
+            <Fundo>
             
-            <Background>
                 <Header>
                     <BlocoHeader>
                         <HeaderImg src={logo} class='logo' alt=""/>
                         <HeaderImg src={profile} class='perfil' alt=""/>
                     </BlocoHeader>
                 </Header>
-        </Background>
+        <Formcadastro>
+        <Titulo>CADASTRO</Titulo>
         <form onSubmit={handleSubmit}>
             <CardTitle>Username</CardTitle>
             <FormInput
@@ -96,9 +133,11 @@ export default function Cadastro() {
                 onChange={(e) => setPassword(e.target.value)}
             ></FormInput>
 
-            <button type="submit">Enviar</button>
+            <FormSubmit type="submit">Enviar</FormSubmit>
         </form>
-        
+        <LinkStyle to='/cadastro'>Já possui uma conta? Faça login!</LinkStyle>
+        </Formcadastro>
+        </Fundo>
         </>  
     )
 }

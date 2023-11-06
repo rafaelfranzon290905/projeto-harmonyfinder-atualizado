@@ -8,15 +8,32 @@ import { useState } from "react";
 import { LayoutComponents } from "../components/LayoutComponents";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
+import { Link } from 'react-router-dom';
+
+const LinkStyle = styled(Link)`
+  text-decoration: none;
+  color: blue;
+  font-weight: 600;
+`
+
 
 export const FormLogin = styled.div`
-    background-color: #004A8D;
+    background-color: #00A3FF;
     width: 30%;
     margin-top: 1%;
     margin-left: 10%;
-    padding: 5px;
+    padding: 3px;
     border-radius: 30px;
     text-align: center;
+`
+
+export const Titulo = styled.h2`
+  color: whitesmoke;
+  text-shadow: 2px 0 black, -2px 0 black, 0 2px black, 0 -2px black,
+             1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+  text-align: center;
+  font-size: 24px;
+  padding: 0;
 `
 
 export const CardTitle = styled.h2`
@@ -28,10 +45,10 @@ export const FormInput = styled.input`
     width: 80%;
     height: 20px;
     border-radius: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 3px;
     font-size: 16px;
     border: none;
-    padding: 15px;
+    padding: 10px;
 `
 
 export const FormSubmit = styled.button`
@@ -45,6 +62,8 @@ export const FormSubmit = styled.button`
     border-style: none;
     margin-left: 25%;
     margin-right: 25%;
+    margin-top: 5%;
+    margin-bottom: 2px;
     &:hover {
       background-color: #FFB800;
       transform: scale(1.05, 1.05);
@@ -104,7 +123,8 @@ export const Login = () => {
               </BlocoHeader>
           </Header>
   
-      {/* <FormLogin onSubmit={handleSubmit}> */}
+      <FormLogin>
+      <Titulo>LOGIN</Titulo>
       <form onSubmit={handleSubmit} className="login-form">
         <CardTitle>Username</CardTitle>
         <FormInput
@@ -127,9 +147,11 @@ export const Login = () => {
           onChange={(e) => setPassword(e.target.value)}
         ></FormInput>
         {/* <FormSubmit type='submit'>Enviar</FormSubmit> */}
-        <button type="submit">Enviar</button>
+        <FormSubmit type="submit">Enviar</FormSubmit>
+
       </form>
-      {/* </FormLogin> */}
+      <LinkStyle to='/cadastro'>Não possui uma conta? Crie uma agora</LinkStyle>
+      </FormLogin>
       
       </Fundo>
       
