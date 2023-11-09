@@ -13,11 +13,21 @@ import retorno from '../assets/return.png';
 import refresh from '../assets/refresh.png';
 import save from '../assets/save.png';
 import ColorScheme from "color-scheme";
+import { Link } from 'react-router-dom';
+import emocao from './Sentimentos'
+
+function hueAleatoria(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+let hue = hueAleatoria(1, 360)
+console.log(`A hue aleatória foi ${hue}`)
 
 var scheme = new ColorScheme;
-scheme.from_hue(1)   // Start the scheme 
+scheme.from_hue(hue)   // Start the scheme 
     .scheme('tetrade')     // Use the 'tetrade' scheme, that is, colors
-    // .distance(0.25)                    // selected from 4 points equidistant around
+    // .distance(1)                    // selected from 4 points equidistant around
+
                             // the color wheel.
     .variation('default');   // Use the 'soft' color variation
 
@@ -34,6 +44,36 @@ colors = [ "e69373", "805240", "e6d5cf", "bf5830" ,
 
 console.log(colors)
 console.log(cor1)
+
+function refreshPagina(){
+    window.location.reload();
+} 
+
+let emoji
+
+switch (emocao){
+    case "feliz":
+        emoji = sorriso
+        console.log(emocao)
+        break;
+    case "triste":
+        emoji = triste
+        console.log(emocao)
+        break;
+    case "paixao":
+        emoji = paixao
+        console.log(emocao)
+        break;
+    case "raiva": 
+        emoji = raiva
+        console.log(emocao)
+        break;
+    default:
+        console.log("Emoção não selecionada")
+
+}
+
+// -----------------------------------------------------
 
 const Selecionado = styled.img`
     height: 40px;
@@ -89,6 +129,9 @@ const Retornar = styled.button`
     border: none;
     font-weight: 600;
     font-size: 20px;
+    :hover {
+        cursor: pointer;
+    }
 `
 
 const Refresh = styled.button`
@@ -97,7 +140,9 @@ const Refresh = styled.button`
     border: none;
     width: 50px;
     height: 50px;
-    
+    :hover {
+        cursor: pointer;
+    }
 
 `
 
@@ -109,6 +154,9 @@ const Salvar = styled.button`
     border: none;
     font-weight: 600;
     font-size: 20px;
+    :hover {
+        cursor: pointer;
+    }
 `
 
  
@@ -133,7 +181,7 @@ export default function PaletasSalvas(){
                     <TituloTxt>Gerador de paleta</TituloTxt>
                     <Seta src={seta}></Seta>
                     <TituloTxt>Selecionado:</TituloTxt>
-                    <Selecionado src={sorriso}></Selecionado>
+                    <Selecionado src={emoji}></Selecionado>
                 </Titulo>
 
                 <CaixaPaletas>
@@ -144,9 +192,9 @@ export default function PaletasSalvas(){
                 </CaixaPaletas>
 
                 <CaixaBotao>
-                    <Retornar><img src={retorno} alt="" height='20px'></img> Retornar</Retornar>
-                    <Refresh><img src={refresh} alt="" height='30px'></img></Refresh>
-                    <Salvar>Salvar <img src={save} alt="" height='20px'></img></Salvar>
+                    <Link to='/sentimentos'><Retornar><img src={retorno} alt="" height='20px'/>Retornar</Retornar></Link>
+                    <Refresh onClick={() => refreshPagina()}><img src={refresh} alt="" height='30px'></img></Refresh>
+                    <Salvar>Salvar<img src={save} alt="" height='20px'></img></Salvar>
                 </CaixaBotao>
             </Caixa>
         </Background>

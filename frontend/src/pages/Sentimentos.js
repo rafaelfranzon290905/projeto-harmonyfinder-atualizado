@@ -142,9 +142,9 @@ export default function Sentimentos() {
                             </Titulo>
                             <AccordionPanel pb={4}>
                                 <DivCaixaSentimento>
-                                    <LinkStyle to='/paletas'><CaixaSentimento1 id='feliz'><SentimentoEmoji alt='' src={sorriso}/></CaixaSentimento1></LinkStyle>
-                                    <LinkStyle to='/paletas'></LinkStyle><CaixaSentimento2 id='triste'><SentimentoEmoji alt='' src={triste}/></CaixaSentimento2><LinkStyle/>
-                                    <LinkStyle to='/paletas'></LinkStyle><CaixaSentimento3 id='paixao'><SentimentoEmoji alt='' src={paixao}/></CaixaSentimento3><LinkStyle/>
+                                    <LinkStyle to='/paletas'><CaixaSentimento1 id='feliz' onClick={() => setEmocao("feliz")}><SentimentoEmoji alt='' src={sorriso}/></CaixaSentimento1></LinkStyle>
+                                    <LinkStyle to='/paletas'></LinkStyle><CaixaSentimento2 id='triste' onClick={() => setEmocao("triste")}><SentimentoEmoji alt='' src={triste}/></CaixaSentimento2><LinkStyle/>
+                                    <LinkStyle to='/paletas'></LinkStyle><CaixaSentimento3 id='paixao' onClick={() => setEmocao("paixao")}><SentimentoEmoji alt='' src={paixao}/></CaixaSentimento3><LinkStyle/>
                                     <LinkStyle to='/paletas'></LinkStyle><CaixaSentimento4 id='raiva' onClick={() => setEmocao("raiva")}><SentimentoEmoji alt='' src={raiva}/></CaixaSentimento4><LinkStyle/>
                                     
                                 </DivCaixaSentimento>

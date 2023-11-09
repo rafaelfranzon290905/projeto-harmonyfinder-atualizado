@@ -38,6 +38,7 @@ function Home() {
         </div>
           <div class="container">
           <div class='cards'>
+            
             <LinkStyle to='/sentimentos'>
             <div class='containerImagem'>
               <p>Começar</p>
