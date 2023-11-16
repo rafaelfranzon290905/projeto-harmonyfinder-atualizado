@@ -14,7 +14,7 @@ async function storePaleta(request, response) {
         request.body.cor1,
         request.body.cor2,
         request.body.cor3,
-        request .body.cor4
+        request.body.cor4
     );
 
     // Executa a ação no banco e valida os retornos para o client que realizou a solicitação
