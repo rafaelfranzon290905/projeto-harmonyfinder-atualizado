@@ -25,7 +25,7 @@ export default function App() {
           <Route path='/cadastro' element={<Cadastro/>}/>
           <Route path="/login" element={<Login/>} />
           <Route path="/sentimentos" element={<Sentimentos/>}/>
-          <Route path="/paletas" element={<Paletas/>}/>
+          <Route path="/paletas/:emocao" element={<Paletas/>}/>
           <Route path="/saved" element={<PaletasSalvas/>}/>
           <Route path="/config" element={<Config/>}/>
           <Route path="/home" element={<Home/>}/>

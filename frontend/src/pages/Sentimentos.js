@@ -116,13 +116,17 @@ const SelecionarCorVermelho = styled.button`
 
 export default function Sentimentos() {
 
-    const [emocao, setEmocao] = useState()
-
-    console.log(emocao)
+    let [emocao, setEmocao] = useState('')
+    console.log(emocao)   
 
     const navigate = useNavigate()
 
-
+    function executarUseState(emocaoSelecionada) {
+        emocao = emocaoSelecionada;
+        // setEmocao(emocaoSelecionada)
+        console.log(emocao)
+        navigate('/paletas/' + emocaoSelecionada)
+    }
    
 
     return (
@@ -150,12 +154,11 @@ export default function Sentimentos() {
                             <AccordionPanel pb={4}>
                                 <DivCaixaSentimento>
 
-                                        <CaixaSentimento1 id='feliz' onClick={() => setEmocao("feliz")}>
-                                    <div onClick={()=>{navigate('/paletas')}}>
-                                            <SentimentoEmoji alt='' src={sorriso}/>
-                                    </div>
-                                        </CaixaSentimento1>
-                                     
+                                    
+                                    <CaixaSentimento1 id='feliz' onClick={() => executarUseState('feliz')}>
+                                        <SentimentoEmoji alt='' src={sorriso}/>
+                                    </CaixaSentimento1>
+                                    
                                     
                                     {/* <CaixaSentimento1 id='feliz' onClick={() => setEmocao("feliz")}> */}
 
@@ -165,9 +168,9 @@ export default function Sentimentos() {
                                     {/* </CaixaSentimento1> */}
 
 
-                                    <LinkStyle to='/paletas'></LinkStyle><CaixaSentimento2 id='triste' onClick={() => setEmocao("triste")}><SentimentoEmoji alt='' src={triste} /></CaixaSentimento2><LinkStyle />
-                                    <LinkStyle to='/paletas'></LinkStyle><CaixaSentimento3 id='paixao' onClick={() => setEmocao("paixao")}><SentimentoEmoji alt='' src={paixao} /></CaixaSentimento3><LinkStyle />
-                                    <LinkStyle to='/paletas'></LinkStyle><CaixaSentimento4 id='raiva' onClick={() => setEmocao("raiva")}><SentimentoEmoji alt='' src={raiva} /></CaixaSentimento4><LinkStyle />
+                                    <CaixaSentimento2 id='triste' onClick={() => executarUseState('triste')}><SentimentoEmoji alt='' src={triste} /></CaixaSentimento2>
+                                    <CaixaSentimento3 id='paixao' onClick={() => executarUseState('paixao')}><SentimentoEmoji alt='' src={paixao} /></CaixaSentimento3>
+                                    <CaixaSentimento4 id='raiva' onClick={() => executarUseState('raiva')}><SentimentoEmoji alt='' src={raiva} /></CaixaSentimento4>
 
                                 </DivCaixaSentimento>
 
@@ -186,10 +189,10 @@ export default function Sentimentos() {
                             <AccordionPanel pb={4}>
                                 <DivCaixaSentimento>
 
-                                    <LinkStyle to='/paletas'><SelecionarCorAmarelo /></LinkStyle>
-                                    <LinkStyle to='/paletas'><SelecionarCorAzul /></LinkStyle>
-                                    <LinkStyle to='/paletas'><SelecionarCorRosa /></LinkStyle>
-                                    <LinkStyle to='/paletas'><SelecionarCorVermelho /></LinkStyle>
+                                    <SelecionarCorAmarelo onClick={() => executarUseState('amarelo')}/>
+                                    <SelecionarCorAzul onClick={() => executarUseState('azul')}/>
+                                    <SelecionarCorRosa onClick={() => executarUseState('rosa')}/>
+                                    <SelecionarCorVermelho onClick={() => executarUseState('vermelho')}/>
 
                                 </DivCaixaSentimento>
 

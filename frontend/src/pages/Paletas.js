@@ -9,69 +9,24 @@ import sorriso from '../assets/sorriso.png';
 import triste from '../assets/triste.png';
 import paixao from '../assets/paixão.png';
 import raiva from '../assets/raiva.png';
+import empty from '../assets/Empty.png'
 import retorno from '../assets/return.png';
 import refresh from '../assets/refresh.png';
 import save from '../assets/save.png';
 import ColorScheme from "color-scheme";
-import { Link } from 'react-router-dom';
-import emocao from './Sentimentos'
+import { Link, useParams } from 'react-router-dom';
+import { api} from "../services/api";
 
-function hueAleatoria(min, max) {
-    return Math.floor(Math.random() * (max - min) + min);
-}
 
-let hue = hueAleatoria(1, 360)
-console.log(`A hue aleatória foi ${hue}`)
+    function refreshPagina(){
+        window.location.reload();
+    } 
 
-var scheme = new ColorScheme;
-scheme.from_hue(hue)   // Start the scheme 
-    .scheme('tetrade')     // Use the 'tetrade' scheme, that is, colors
-    // .distance(1)                    // selected from 4 points equidistant around
+    let emoji
 
-                            // the color wheel.
-    .variation('default');   // Use the 'soft' color variation
+      
 
-var colors = scheme.colors();
-let cor1 = "#" + colors[0]
-let cor2 = "#" + colors[4]
-let cor3 = "#" + colors[8]
-let cor4 = "#" + colors[12]
-/*
-colors = [ "e69373", "805240", "e6d5cf", "bf5830" ,
-            "77d36a", "488040", "d2e6cf", "43bf30" ,
-            "557aaa", "405c80", "cfd9e6", "306ebf" ]
-*/
 
-console.log(colors)
-console.log(cor1)
-
-function refreshPagina(){
-    window.location.reload();
-} 
-
-let emoji
-
-switch (emocao){
-    case "feliz":
-        emoji = sorriso
-        console.log(emocao)
-        break;
-    case "triste":
-        emoji = triste
-        console.log(emocao)
-        break;
-    case "paixao":
-        emoji = paixao
-        console.log(emocao)
-        break;
-    case "raiva": 
-        emoji = raiva
-        console.log(emocao)
-        break;
-    default:
-        console.log("Emoção não selecionada")
-
-}
 
 // -----------------------------------------------------
 
@@ -89,25 +44,25 @@ const CaixaPaletas = styled.div`
     justify-content: space-evenly;
 `
 const Cor1 = styled.div`
-    background-color: ${cor1};
+    
     height: 100%;
     width: 20%;
     display: flex;
 `
 const Cor2 = styled.div`
-    background-color: ${cor2};
+    
     height: 100%;
     width: 20%;
     display: flex;
 `
 const Cor3 = styled.div`
-    background-color: ${cor3};
+    
     height: 100%;
     width: 20%;
     display: flex;
 `
 const Cor4 = styled.div`
-    background-color: ${cor4};
+    
     height: 100%;
     width: 20%;
     display: flex;
@@ -163,7 +118,191 @@ const Salvar = styled.button`
    
 export default function PaletasSalvas(){
 
+    let variation
+    let schemeTipo
+    let hue
+    var colors 
+    let cor1
+    let cor2
+    let cor3
+    let cor4
+    let distance = 0.5
+    const { emocao } = useParams();
     
+    
+    switch (emocao){
+        case "feliz":
+            emoji = sorriso
+            console.log(emocao)
+            variation = 'default'
+            schemeTipo = 'tetrade'
+            hue = hueAleatoria(1, 360)
+            console.log(`A hue aleatória foi ${hue}`)
+            break;
+        case "triste":
+            emoji = triste
+            console.log(emocao)
+            variation = 'default'
+            schemeTipo = 'tetrade'
+            hue = hueAleatoria(1, 360)
+            console.log(`A hue aleatória foi ${hue}`)
+            break;
+        case "paixao":
+            emoji = paixao
+            console.log(emocao)
+            variation = 'hard'
+            schemeTipo = 'tetrade'
+            hue = hueAleatoria(1, 360)
+            console.log(`A hue aleatória foi ${hue}`)
+            break;
+        case "raiva": 
+            emoji = raiva
+            console.log(emocao)
+            variation = 'hard'
+            schemeTipo = 'tetrade'
+            hue = hueAleatoria(300, 360)
+            console.log(`A hue aleatória foi ${hue}`)
+            break;
+        case "amarelo":
+            emoji = empty
+            console.log(emocao)
+            variation = 'default'
+            schemeTipo = 'mono'
+            hue = hueAleatoria(45, 110)
+            console.log(`A hue aleatória foi ${hue}`)
+            break;
+        case "azul":
+            emoji = empty
+            console.log(emocao)
+            variation = 'default'
+            schemeTipo = 'mono'
+            hue = hueAleatoria(210, 270)
+            console.log(`A hue aleatória foi ${hue}`)
+            break;
+        case "rosa":
+            emoji = empty
+            console.log(emocao)
+            variation = 'default'
+            schemeTipo = 'mono'
+            hue = hueAleatoria(330, 350)
+            console.log(`A hue aleatória foi ${hue}`)
+            break;
+        case "vermelho":
+            emoji = empty
+            console.log(emocao)
+            variation = 'default'
+            schemeTipo = 'mono'
+            hue = hueAleatoria(345, 360)
+            console.log(`A hue aleatória foi ${hue}`)
+            break;
+        default:
+            console.log("Emoção não selecionada")
+            
+    
+    }
+
+    
+
+    function hueAleatoria(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+
+
+    var scheme = new ColorScheme;
+    scheme.from_hue(hue)   // Start the scheme 
+        .scheme(schemeTipo)     // Use the 'tetrade' scheme, that is, colors
+        .distance(distance)                    // selected from 4 points equidistant around
+
+                                // the color wheel.
+        .variation(variation);   // Use the 'soft' color variation
+
+        colors = scheme.colors();
+        cor1 = "#" + colors[0]
+        cor2 = "#" + colors[4]
+        cor3 = "#" + colors[8]
+        cor4 = "#" + colors[12]
+        /*
+        colors = [ "e69373", "805240", "e6d5cf", "bf5830" ,
+                    "77d36a", "488040", "d2e6cf", "43bf30" ,
+                    "557aaa", "405c80", "cfd9e6", "306ebf" ]
+        */
+    
+        console.log(colors)
+        console.log(cor1)
+
+        switch (emocao){
+            case "amarelo":
+                cor1 = "#" + colors[0]
+                cor2 = "#" + colors[1]
+                cor3 = "#" + colors[3]
+                cor4 = "#" + colors[2]
+                break;
+            case "triste":
+                variation = 'default'
+                cor1 = "#" + colors[1]
+                cor2 = "#" + colors[5]
+                cor3 = "#" + colors[9]
+                cor4 = "#" + colors[13]
+                    break;
+            case "paixao":
+                cor1 = "#" + colors[3]
+                cor2 = "#" + colors[7]
+                cor3 = "#" + colors[11]
+                cor4 = "#" + colors[15]
+                break;
+            case "raiva": 
+                cor1 = "#" + colors[0]
+                cor2 = "#" + colors[1]
+                cor3 = "#" + colors[12]
+                cor4 = "#" + colors[13]
+                break;
+            case "azul":
+                cor1 = "#" + colors[0]
+                cor2 = "#" + colors[1]
+                cor3 = "#" + colors[3]
+                cor4 = "#" + colors[2]
+                break;
+            case "rosa": 
+                cor1 = "#" + colors[0]
+                cor2 = "#" + colors[1]
+                cor3 = "#" + colors[3]
+                cor4 = "#" + colors[2]
+                break;
+            case "vermelho": 
+                cor1 = "#" + colors[0]
+                cor2 = "#" + colors[1]
+                cor3 = "#" + colors[3]
+                cor4 = "#" + colors[2]
+                break;
+            default:
+                console.log("Emoção não selecionada")
+                
+        
+        }
+    
+
+
+    let styleColor1 = {background: cor1}
+    let styleColor2 = {background: cor2}
+    let styleColor3 = {background: cor3}
+    let styleColor4 = {background: cor4}
+
+    const handleSave = async () => {
+        const data = {
+            cor1,
+            cor2,
+            cor3,
+            cor4,
+            idUsuario: localStorage.getItem('id')
+        };
+        const response = api.post('/salvar/paleta', data);
+        await response;
+        if (response.data.success) {
+            alert('salvou');
+        } else {
+            alert('Nao salvou');
+        }
+    };
 
     return (
     <>
@@ -185,16 +324,16 @@ export default function PaletasSalvas(){
                 </Titulo>
 
                 <CaixaPaletas>
-                    <Cor1></Cor1>
-                    <Cor2></Cor2>
-                    <Cor3></Cor3>
-                    <Cor4></Cor4>
+                    <Cor1 style={styleColor1}></Cor1>
+                    <Cor2 style={styleColor2}></Cor2>
+                    <Cor3 style={styleColor3}></Cor3>
+                    <Cor4 style={styleColor4}></Cor4>
                 </CaixaPaletas>
 
                 <CaixaBotao>
                     <Link to='/sentimentos'><Retornar><img src={retorno} alt="" height='20px'/>Retornar</Retornar></Link>
                     <Refresh onClick={() => refreshPagina()}><img src={refresh} alt="" height='30px'></img></Refresh>
-                    <Salvar>Salvar<img src={save} alt="" height='20px'></img></Salvar>
+                    <Salvar onClick={handleSave}>Salvar<img src={save} alt="" height='20px'></img></Salvar>
                 </CaixaBotao>
             </Caixa>
         </Background>
