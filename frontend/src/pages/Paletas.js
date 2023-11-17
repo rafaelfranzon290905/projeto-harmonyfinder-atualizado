@@ -293,11 +293,15 @@ export default function PaletasSalvas(){
             cor2,
             cor3,
             cor4,
-            idUsuario: localStorage.getItem('id')
+            id_usuario: localStorage.getItem('id')
         };
+
         const response = api.post('/salvar/paleta', data);
         await response;
-        if (response.data.success) {
+        console.log("alouuuu")
+        console.log(response)
+        console.log(response)
+        if ((await response).data.success) {
             alert('salvou');
         } else {
             alert('Nao salvou');

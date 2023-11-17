@@ -7,14 +7,15 @@ const bcrypt = require('bcrypt');
 // Função que cria um novo usuário 
 async function storePaleta(request, response) {
     // Preparar o comando de execução no banco
-    const query = 'INSERT INTO paletas(cor1, cor2, cor3, cor4) VALUES(?, ?, ?, ?);';
+    const query = 'INSERT INTO paletas(cor1, cor2, cor3, cor4, id_usuario) VALUES(?, ?, ?, ?, ?);';
 
     // Recuperar os dados enviados na requisição
     const params = Array(
         request.body.cor1,
         request.body.cor2,
         request.body.cor3,
-        request.body.cor4
+        request.body.cor4,
+        request.body.id_usuario
     );
 
     // Executa a ação no banco e valida os retornos para o client que realizou a solicitação

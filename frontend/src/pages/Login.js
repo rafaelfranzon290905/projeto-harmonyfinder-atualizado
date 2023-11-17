@@ -95,7 +95,7 @@ export const Login = () => {
     console.log(data);
     const response = await api.post("/auth/login", data);
       console.log(response.data);
-      console.log(response.data.data[0]);
+      console.log(response.data.data[0].id);
 
       if (response.data.success === true) { 
 
@@ -107,7 +107,8 @@ export const Login = () => {
 
         localStorage.setItem("@Auth:user", JSON.stringify(response.data.data[0].name));
         localStorage.setItem("@Auth:token", response.data.data[0].token);
-
+        localStorage.setItem("id", response.data.data[0].id)
+        console.log(response)
         navigate("/home");
         
       }
