@@ -91,11 +91,21 @@ export default function Cadastro() {
         email,
         password,
         };
-        await api.post("/user/create", data);
-        alert("Usuário criado com sucesso!");
-        
+        const response = await api.post("/user/create", data);
 
-        navigate("/home");
+        if (response.data.success === true) {
+
+
+            alert("Usuário criado com sucesso!");
+            console.log(response.data)
+            console.log(response)
+            navigate("/login");
+        }
+
+        // alert("Usuário criado com sucesso!");
+        // localStorage.setItem("id", await api.post("/user/create", data).id)
+
+        // navigate("/home");
   };
 
 
@@ -136,7 +146,7 @@ export default function Cadastro() {
 
             <FormSubmit type="submit">Enviar</FormSubmit>
         </form>
-        <LinkStyle to='/cadastro'>Já possui uma conta? Faça login!</LinkStyle>
+        <LinkStyle to='/login'>Já possui uma conta? Faça login!</LinkStyle>
         </Formcadastro>
         </Fundo>
         </>  

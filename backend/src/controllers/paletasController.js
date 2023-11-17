@@ -50,6 +50,42 @@ async function storePaleta(request, response) {
     });
 }
 
+async function listPaletas(request, response) {
+    const query =('SELECT * FROM paletas where id_usuario = ?')
+    // const query = 
+    // " SELECT u.name, c.id, c.description, DATE_FORMAT(c.created_at, '%d/%m/%Y %H:%i:%s') as data_criacao, c.user_id " +
+    // " FROM comments c, users u" +
+    // " WHERE c.post_id = ? and c.user_id = u.id ";
+
+    const params = Array(
+        request.params.id
+    );
+    
+    connection.query(query, params, (err, results) => {
+        if (results) {
+            console.log(results)
+            response
+                .status(200)
+                .json({
+                    success: true,
+                    message: `Sucesso! Lista de paletas do bacno de dados.`,
+                    data: results
+                });
+        } else {
+            response
+                .status(400)
+                .json({
+                    success: false,
+                    message: `Não foi possível acessar as paletas`,
+                    query: err.sql,
+                    sqlMessage: err.sqlMessage
+                });
+        }
+        
+    })
+}
+
 module.exports = {
-    storePaleta
+    storePaleta,
+    listPaletas
 }
