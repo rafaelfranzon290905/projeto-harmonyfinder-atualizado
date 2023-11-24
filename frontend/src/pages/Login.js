@@ -2,7 +2,7 @@ import styled from "styled-components"
 // import { Background } from "../styledGlobal";
 import { Header, BlocoHeader, HeaderImg } from "./Config"
 import logo from '../assets/senac_logo_branco.png';
-import profile from '../assets/image-removebg-preview (3).png';
+import profile from '../assets/HarmonyFinderLogo.png';
 import fotoFundo from "../assets/background.PNG";
 import { useState } from "react";
 import { LayoutComponents } from "../components/LayoutComponents";

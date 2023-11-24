@@ -1,7 +1,7 @@
 import { Header, BlocoHeader, HeaderImg } from "./Config"
 import { Background } from "../styledGlobal"
 import logo from '../assets/senac_logo_branco.png';
-import profile from '../assets/image-removebg-preview (3).png';
+import profile from '../assets/HarmonyFinderLogo.png';
 import { Caixa, Titulo, Seta, TituloTxt } from "./Config";
 import seta from '../assets/SetaLegal.png'
 import styled from "styled-components";
@@ -176,7 +176,7 @@ export default function PaletasSalvas(){
             console.log(emocao)
             variation = 'default'
             schemeTipo = 'mono'
-            hue = hueAleatoria(210, 270)
+            hue = hueAleatoria(230, 270)
             console.log(`A hue aleatória foi ${hue}`)
             break;
         case "rosa":
@@ -193,6 +193,38 @@ export default function PaletasSalvas(){
             variation = 'default'
             schemeTipo = 'mono'
             hue = hueAleatoria(345, 360)
+            console.log(`A hue aleatória foi ${hue}`)
+            break;
+        case "verde":
+            emoji = empty
+            console.log(emocao)
+            variation = 'default'
+            schemeTipo = 'mono'
+            hue = hueAleatoria(140, 190)
+            console.log(`A hue aleatória foi ${hue}`)
+            break;
+        case "laranja":
+            emoji = empty
+            console.log(emocao)
+            variation = 'default'
+            schemeTipo = 'mono'
+            hue = hueAleatoria(10, 60)
+            console.log(`A hue aleatória foi ${hue}`)
+            break;
+        case "roxo":
+            emoji = empty
+            console.log(emocao)
+            variation = 'default'
+            schemeTipo = 'mono'
+            hue = hueAleatoria(280, 330)
+            console.log(`A hue aleatória foi ${hue}`)
+            break;
+        case "ciano":
+            emoji = empty
+            console.log(emocao)
+            variation = 'default'
+            schemeTipo = 'mono'
+            hue = hueAleatoria(210, 230)
             console.log(`A hue aleatória foi ${hue}`)
             break;
         default:
@@ -274,6 +306,30 @@ export default function PaletasSalvas(){
                 cor3 = "#" + colors[3]
                 cor4 = "#" + colors[2]
                 break;
+            case "verde": 
+                cor1 = "#" + colors[0]
+                cor2 = "#" + colors[1]
+                cor3 = "#" + colors[3]
+                cor4 = "#" + colors[2]
+                break;
+            case "laranja": 
+                cor1 = "#" + colors[0]
+                cor2 = "#" + colors[1]
+                cor3 = "#" + colors[3]
+                cor4 = "#" + colors[2]
+                break;
+            case "roxo": 
+                cor1 = "#" + colors[0]
+                cor2 = "#" + colors[1]
+                cor3 = "#" + colors[3]
+                cor4 = "#" + colors[2]
+                break;
+            case "ciano": 
+                cor1 = "#" + colors[0]
+                cor2 = "#" + colors[1]
+                cor3 = "#" + colors[3]
+                cor4 = "#" + colors[2]
+                break;
             default:
                 console.log("Emoção não selecionada")
                 
@@ -302,9 +358,9 @@ export default function PaletasSalvas(){
         console.log(response)
         console.log(response)
         if ((await response).data.success) {
-            alert('salvou');
+            alert('Paleta salva com sucesso');
         } else {
-            alert('Nao salvou');
+            alert('Não foi possível salvar a paleta');
         }
     };
 

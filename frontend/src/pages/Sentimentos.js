@@ -1,7 +1,7 @@
 import { Background } from '../styledGlobal';
 import styled from "styled-components"
 import logo from '../assets/senac_logo_branco.png';
-import profile from '../assets/image-removebg-preview (3).png';
+import profile from '../assets/HarmonyFinderLogo.png';
 import sorriso from '../assets/sorriso.png';
 import triste from '../assets/triste.png';
 import paixao from '../assets/paixão.png';
@@ -35,7 +35,7 @@ export const BlocoHeader = styled.div`
 `
 
 export const HeaderImg = styled.img`
-    width: 10vw;
+    width: 8vw;
     height: 12vh;
     
 `
@@ -63,6 +63,7 @@ const DivCaixaSentimento = styled.div`
     justify-content: space-between;
     margin-left: 5%;
     margin-right: 5%;
+    margin-bottom: 3%;
 `
 
 const CaixaSentimento1 = styled.button`
@@ -112,7 +113,41 @@ const SelecionarCorVermelho = styled.button`
     background-color: #EC2D2D;
 `
 
+const SelecionarCorVerde = styled.button`
+    width: 120px;
+    height: 120px;
+    background-color: #22b100;
+`
+const SelecionarCorLaranja = styled.button`
+    width: 120px;
+    height: 120px;
+    background-color: #ff7400;
+`
+const SelecionarCorRoxo = styled.button`
+    width: 120px;
+    height: 120px;
+    background-color: #4a006b;
+`
+const SelecionarCorCiano = styled.button`
+    width: 120px;
+    height: 120px;
+    background-color: #80d6ff;
+`
 
+const Retornar = styled.button`
+    background-color: #D6D9B6;
+    /* width: 100px; */
+    height: 50px;
+    border-radius: 30px;
+    border: none;
+    font-weight: 600;
+    font-size: 20px;
+    margin-left: 10%;
+    margin-top: 5%;
+    :hover {
+        cursor: pointer;
+    }
+`
 
 export default function Sentimentos() {
 
@@ -193,14 +228,22 @@ export default function Sentimentos() {
                                     <SelecionarCorAzul onClick={() => executarUseState('azul')}/>
                                     <SelecionarCorRosa onClick={() => executarUseState('rosa')}/>
                                     <SelecionarCorVermelho onClick={() => executarUseState('vermelho')}/>
+                                    
 
                                 </DivCaixaSentimento>
 
+                                <DivCaixaSentimento>
+                                    <SelecionarCorVerde onClick={() => executarUseState('verde')}/>
+                                    <SelecionarCorLaranja onClick={() => executarUseState('laranja')}/>
+                                    <SelecionarCorRoxo onClick={() => executarUseState('roxo')}/>
+                                    <SelecionarCorCiano onClick={() => executarUseState('ciano')}/>
+                                </DivCaixaSentimento>
 
                             </AccordionPanel>
                         </AccordionItem>
                     </Accordion>
                 </BlocoEscolha>
+                <Link to='/home'><Retornar>Retornar</Retornar></Link>
             </Background>
         </>
 

@@ -1,9 +1,9 @@
 import logo from '../assets/senac_logo_branco.png';
-import profile from '../assets/image-removebg-preview (3).png';
+import profile from '../assets/HarmonyFinderLogo.png';
 import gif from '../assets/synthwave high definition.gif'
 import comeco from '../assets/play.png'
 import status from '../assets/status.png'
-import configuracao from '../assets/config.png'
+import configuracao from '../assets/guide.png'
 import { Header, BlocoHeader, HeaderImg } from './Sentimentos';
 // import './App.css';
 import '../style.css'
@@ -58,8 +58,8 @@ function Home() {
 
             <LinkStyle to='/config'>
             <div class='containerImagem'>
-              <p>Configurações</p>
-              <img src={configuracao} alt='' width="40%"/>
+              <p>Guia</p>
+              <img src={configuracao} alt='' width="50%"/>
             </div>
             </LinkStyle>
 
@@ -68,8 +68,7 @@ function Home() {
       </main>
 
       <footer padding>
-        <LinkStyle to='/login'>Fazer login -</LinkStyle>
-        <LinkStyle to='/cadastro'>- Fazer cadastro</LinkStyle>
+        <LinkStyle to='/login'>Trocar de conta</LinkStyle>
       </footer>
    
 

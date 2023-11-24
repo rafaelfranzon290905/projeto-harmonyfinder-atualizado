@@ -21,7 +21,7 @@ export default function App() {
     <GlobalStyle/>
       <Routes>
         <Route>
-          <Route index element={<Home />} />
+          <Route index element={<Login/>} />
           <Route path='/cadastro' element={<Cadastro/>}/>
           <Route path="/login" element={<Login/>} />
           <Route path="/sentimentos" element={<Sentimentos/>}/>

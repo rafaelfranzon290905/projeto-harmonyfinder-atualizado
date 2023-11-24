@@ -1,7 +1,7 @@
 import { Header, BlocoHeader, HeaderImg } from "./Config"
 import styled from "styled-components"
 import logo from '../assets/senac_logo_branco.png';
-import profile from '../assets/image-removebg-preview (3).png';
+import profile from '../assets/HarmonyFinderLogo.png';
 import { useState } from "react";
 import fotoFundo from "../assets/background.PNG";
 import { useNavigate } from "react-router-dom";
